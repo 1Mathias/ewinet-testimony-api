@@ -41,6 +41,6 @@ app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
 app.use("/api/hashtag", hashTagRoute);
 
-app.listen("5000", () => {
+app.listen(5000, () => {
     console.log("Backend is running.")
 }) 
