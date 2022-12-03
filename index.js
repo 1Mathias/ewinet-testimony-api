@@ -15,7 +15,7 @@ app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "/images")));
 
 
-mongoose.connect(process.env.MONGO_URL, {
+mongoose.connect('mongodb+srv://matthias:Matuks123.4567@atlascluster.pnal9p8.mongodb.net/?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(console.log("Connected to MongoDB")).catch((err) => console.log(err));
