@@ -13,6 +13,8 @@ const multer = require("multer");
 dotenv.config();
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "/images")));
+app.use(express.static(__dirname + '/public'));
+
 
 
 mongoose.connect('mongodb+srv://matthias:Matuks123.4567@atlascluster.pnal9p8.mongodb.net/?retryWrites=true&w=majority', {
@@ -32,6 +34,13 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 app.post("/api/upload", upload.single("file"), (req, res) => {
     res.status(200).json("File has been uploaded");
+});
+
+app.get("/", function (req, res) {
+    // We want to return an array of all the lists that belong to the authenticated user
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    //res.end("Hello World")
+    res.sendFile(__dirname + "public/index.html");
 });
 
 
